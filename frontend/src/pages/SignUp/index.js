@@ -92,8 +92,6 @@ function SignUp() {
     }
   }
 
-  console.log(result);
-
   return (
     <Container>
       <BsBoxArrowLeft
