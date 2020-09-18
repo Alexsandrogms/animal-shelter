@@ -1,0 +1,75 @@
+@baseURL=http://localhost:3333
+@token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwYXNzd29yZCI6IjEyMzQ1Njc4OSIsImlhdCI6MTYwMDAyNDMzNSwiZXhwIjoxNjAwMTEwNzM1fQ.vKf4AVvI7bkdwj6q0XZn7deGofUbfdKh4Ge2bAhMijE
+
+### Create User 
+
+POST {{baseURL}}/users
+Content-Type: application/json
+
+{
+  "name": "Alexsandro",
+  "email": "alexsandro@contato.com",
+  "password": "123456789",
+  "telephone": "(61) 99402-0778",
+  "latitude": -12.9785131,
+  "longitude": -44.057821
+}
+
+### Create Authentication 
+
+POST {{baseURL}}/auth
+Content-Type: application/json
+
+{
+  "email": "alexsandro1@contato.com",
+  "password": "123456789"
+}
+
+
+### Update User 
+
+PUT {{baseURL}}/auth/user
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+{
+  "id": "5f5ba10b96bb8a256c5623a8",
+  "name": "Lucas Moreira",
+  "email": "lucasM@contato.com",
+  "password": "123456789",
+  "telephone": "(61) 99402-0777",
+  "latitude": -12.9785131,
+  "longitude": -44.057821
+}
+
+
+### Delete User 
+
+DELETE {{baseURL}}/auth/user
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+{
+  "id": "5f5ba10b96bb8a256c5623a8"
+}
+
+#### Create Animal
+
+POST {{baseURL}}/auth/animal
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+{
+  "avatar": "https://images.pexels.com/photos/551628/pexels-photo-551628.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
+  "breed": "Viralata",
+  "gender": "Femea",
+  "deficiency": "Nenhuma",
+  "name": "Flor"
+}
+
+
+#### Show all animals
+
+GET {{baseURL}}/auth/animal
+Content-Type: application/json
+Authorization: Bearer {{token}}
